@@ -55,6 +55,10 @@ Run from the command line supplying the following arguments
   * Zip Archive (bool)
   * Archive Name
 
+```
+[Repo Path]\obj\x86\Debug\QueryToCSV.exe "call [schema].stored_procedure('value');" "C:\Temp\" data.csv true Sample.zip
+```
+
 ## Contributing
 Fork this repository, make changes in your fork, and then submit a pull-request, remembering not to upload any system specific configuration files, PII, or sensitive data of any type. 
 
