@@ -56,7 +56,7 @@ Run from the command line supplying the following arguments
   * Archive Name
 
 ```
-[Repo Path]\obj\x86\Debug\QueryToCSV.exe "call hspd.uspGetPIVCardInfo('20505000118000180E0E');" "C:\Temp\Random" XTEC.dat true Sample.zip
+[Repo Path]\obj\x86\Debug\QueryToCSV.exe "call [schema].stored_procedure('value');" "C:\Temp\" data.csv true Sample.zip
 ```
 
 ## Contributing
