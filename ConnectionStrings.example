@@ -1,0 +1,4 @@
+<connectionStrings>
+	<add name="CONNSTRING" connectionString="connection string" />
+</connectionStrings>
+ 

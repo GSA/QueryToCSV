@@ -1,0 +1,4 @@
+﻿<appSettings>
+  <add key="zipKey" value="MyKeyHere"/>
+  <add key="zipLocation" value="C:\temp\"/>
+</appSettings>
