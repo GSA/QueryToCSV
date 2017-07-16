@@ -73,6 +73,8 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="AppSettings.example" />
+    <None Include="ConnectionStrings.example" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
