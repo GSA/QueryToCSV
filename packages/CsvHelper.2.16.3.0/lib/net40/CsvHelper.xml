@@ -380,6 +380,12 @@
             </summary>
             <param name="parser">The <see cref="T:CsvHelper.ICsvParser" /> used to parse the CSV file.</param>
         </member>
+        <member name="M:CsvHelper.CsvReader.ReadHeader">
+            <summary>
+            Reads the header field without reading the first row.
+            </summary>
+            <returns>True if there are more records, otherwise false.</returns>
+        </member>
         <member name="M:CsvHelper.CsvReader.Read">
             <summary>
             Advances the reader to the next record.
@@ -1480,9 +1486,16 @@
             Gets the field headers.
             </summary>
         </member>
+        <member name="M:CsvHelper.ICsvReader.ReadHeader">
+            <summary>
+            Reads the header field without reading the first row.
+            </summary>
+            <returns>True if there are more records, otherwise false.</returns>
+        </member>
         <member name="M:CsvHelper.ICsvReader.Read">
             <summary>
-            Advances the reader to the next record.
+            Advances the reader to the next record. If the header hasn't been read
+            yet, it'll automatically be read along with the first record.
             </summary>
             <returns>True if there are more records, otherwise false.</returns>
         </member>
