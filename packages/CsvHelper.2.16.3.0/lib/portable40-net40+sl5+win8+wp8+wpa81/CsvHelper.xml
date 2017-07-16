@@ -30,14 +30,6 @@
             <param name="message">The error message that explains the reason for the exception.</param>
             <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
         </member>
-        <member name="M:CsvHelper.CsvBadDataException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:CsvHelper.CsvHelperException"/> class
-            with serialized data.
-            </summary>
-            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
-        </member>
         <member name="T:CsvHelper.CsvFactory">
             <summary>
             Creates CsvHelper classes.
@@ -121,14 +113,6 @@
             <param name="message">The error message that explains the reason for the exception.</param>
             <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
         </member>
-        <member name="M:CsvHelper.CsvHelperException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:CsvHelper.CsvHelperException"/> class
-            with serialized data.
-            </summary>
-            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
-        </member>
         <member name="T:CsvHelper.CsvMissingFieldException">
             <summary>
             Represents an error caused because a field is missing
@@ -155,14 +139,6 @@
             </summary>
             <param name="message">The error message that explains the reason for the exception.</param>
             <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
-        </member>
-        <member name="M:CsvHelper.CsvMissingFieldException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:CsvHelper.CsvMissingFieldException"/> class
-            with serialized data.
-            </summary>
-            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
         </member>
         <member name="T:CsvHelper.CsvParser">
             <summary>
@@ -321,14 +297,6 @@
             <param name="message">The error message that explains the reason for the exception.</param>
             <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
         </member>
-        <member name="M:CsvHelper.CsvParserException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:CsvHelper.CsvParserException"/> class
-            with serialized data.
-            </summary>
-            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
-        </member>
         <member name="T:CsvHelper.CsvReader">
             <summary>
             Reads data that was parsed from <see cref="T:CsvHelper.ICsvParser" />.
@@ -379,6 +347,12 @@
             Creates a new CSV reader using the given <see cref="T:CsvHelper.ICsvParser" />.
             </summary>
             <param name="parser">The <see cref="T:CsvHelper.ICsvParser" /> used to parse the CSV file.</param>
+        </member>
+        <member name="M:CsvHelper.CsvReader.ReadHeader">
+            <summary>
+            Reads the header field without reading the first row.
+            </summary>
+            <returns>True if there are more records, otherwise false.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.Read">
             <summary>
@@ -524,23 +498,23 @@
         </member>
         <member name="M:CsvHelper.CsvReader.GetField``1(System.Int32)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position (column) index.
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position (column) index.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
             <param name="index">The zero based index of the field.</param>
-            <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
+            <returns>The field converted to <see cref="T:System.Reflection.Type"/> T.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.GetField``1(System.String)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position (column) name.
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position (column) name.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
             <param name="name">The named index of the field.</param>
-            <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
+            <returns>The field converted to <see cref="T:System.Reflection.Type"/> T.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.GetField``1(System.String,System.Int32)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position 
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position 
             (column) name and the index instance of that field. The index 
             is used when there are multiple columns with the same header name.
             </summary>
@@ -551,164 +525,164 @@
         </member>
         <member name="M:CsvHelper.CsvReader.GetField``1(System.Int32,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position (column) index using
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position (column) index using
             the given <see cref="T:CsvHelper.TypeConversion.ITypeConverter" />.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
             <param name="index">The zero based index of the field.</param>
-            <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</param>
-            <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
+            <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Reflection.Type"/> T.</param>
+            <returns>The field converted to <see cref="T:System.Reflection.Type"/> T.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.GetField``1(System.String,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position (column) name using
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position (column) name using
             the given <see cref="T:CsvHelper.TypeConversion.ITypeConverter" />.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
             <param name="name">The named index of the field.</param>
-            <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</param>
-            <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
+            <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Reflection.Type"/> T.</param>
+            <returns>The field converted to <see cref="T:System.Reflection.Type"/> T.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.GetField``1(System.String,System.Int32,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position 
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position 
             (column) name and the index instance of that field. The index 
             is used when there are multiple columns with the same header name.
             </summary>
             <typeparam name="T"></typeparam>
             <param name="name">The named index of the field.</param>
             <param name="index">The zero based index of the instance of the field.</param>
-            <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</param>
-            <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
+            <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Reflection.Type"/> T.</param>
+            <returns>The field converted to <see cref="T:System.Reflection.Type"/> T.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.GetField``2(System.Int32)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position (column) index using
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position (column) index using
             the given <see cref="T:CsvHelper.TypeConversion.ITypeConverter" />.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
-            <typeparam name="TConverter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
+            <typeparam name="TConverter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Reflection.Type"/> T.</typeparam>
             <param name="index">The zero based index of the field.</param>
-            <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
+            <returns>The field converted to <see cref="T:System.Reflection.Type"/> T.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.GetField``2(System.String)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position (column) name using
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position (column) name using
             the given <see cref="T:CsvHelper.TypeConversion.ITypeConverter" />.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
-            <typeparam name="TConverter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
+            <typeparam name="TConverter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Reflection.Type"/> T.</typeparam>
             <param name="name">The named index of the field.</param>
-            <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
+            <returns>The field converted to <see cref="T:System.Reflection.Type"/> T.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.GetField``2(System.String,System.Int32)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position 
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position 
             (column) name and the index instance of that field. The index 
             is used when there are multiple columns with the same header name.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
-            <typeparam name="TConverter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
+            <typeparam name="TConverter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Reflection.Type"/> T.</typeparam>
             <param name="name">The named index of the field.</param>
             <param name="index">The zero based index of the instance of the field.</param>
-            <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
+            <returns>The field converted to <see cref="T:System.Reflection.Type"/> T.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.TryGetField``1(System.Int32,``0@)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position (column) index.
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position (column) index.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
             <param name="index">The zero based index of the field.</param>
             <param name="field">The field converted to type T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.TryGetField``1(System.String,``0@)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position (column) name.
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position (column) name.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
             <param name="name">The named index of the field.</param>
-            <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
+            <param name="field">The field converted to <see cref="T:System.Reflection.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.TryGetField``1(System.String,System.Int32,``0@)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position 
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position 
             (column) name and the index instance of that field. The index 
             is used when there are multiple columns with the same header name.
             </summary>
             <typeparam name="T"></typeparam>
             <param name="name">The named index of the field.</param>
             <param name="index">The zero based index of the instance of the field.</param>
-            <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
+            <param name="field">The field converted to <see cref="T:System.Reflection.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.TryGetField``1(System.Int32,CsvHelper.TypeConversion.ITypeConverter,``0@)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position (column) index
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position (column) index
             using the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter" />.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
             <param name="index">The zero based index of the field.</param>
-            <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</param>
-            <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
+            <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Reflection.Type"/> T.</param>
+            <param name="field">The field converted to <see cref="T:System.Reflection.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.TryGetField``1(System.String,CsvHelper.TypeConversion.ITypeConverter,``0@)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position (column) name
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position (column) name
             using the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
             <param name="name">The named index of the field.</param>
-            <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</param>
-            <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
+            <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Reflection.Type"/> T.</param>
+            <param name="field">The field converted to <see cref="T:System.Reflection.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.TryGetField``1(System.String,System.Int32,CsvHelper.TypeConversion.ITypeConverter,``0@)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position (column) name
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position (column) name
             using the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
             <param name="name">The named index of the field.</param>
             <param name="index">The zero based index of the instance of the field.</param>
-            <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</param>
-            <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
+            <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Reflection.Type"/> T.</param>
+            <param name="field">The field converted to <see cref="T:System.Reflection.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.TryGetField``2(System.Int32,``0@)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position (column) index
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position (column) index
             using the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter" />.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
-            <typeparam name="TConverter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
+            <typeparam name="TConverter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Reflection.Type"/> T.</typeparam>
             <param name="index">The zero based index of the field.</param>
-            <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
+            <param name="field">The field converted to <see cref="T:System.Reflection.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.TryGetField``2(System.String,``0@)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position (column) name
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position (column) name
             using the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
-            <typeparam name="TConverter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
+            <typeparam name="TConverter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Reflection.Type"/> T.</typeparam>
             <param name="name">The named index of the field.</param>
-            <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
+            <param name="field">The field converted to <see cref="T:System.Reflection.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.TryGetField``2(System.String,System.Int32,``0@)">
             <summary>
-            Gets the field converted to <see cref="T:System.Type"/> T at position (column) name
+            Gets the field converted to <see cref="T:System.Reflection.Type"/> T at position (column) name
             using the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the field.</typeparam>
-            <typeparam name="TConverter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the field.</typeparam>
+            <typeparam name="TConverter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Reflection.Type"/> T.</typeparam>
             <param name="name">The named index of the field.</param>
             <param name="index">The zero based index of the instance of the field.</param>
-            <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
+            <param name="field">The field converted to <see cref="T:System.Reflection.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.IsRecordEmpty">
@@ -722,34 +696,34 @@
         </member>
         <member name="M:CsvHelper.CsvReader.GetRecord``1">
             <summary>
-            Gets the record converted into <see cref="T:System.Type"/> T.
+            Gets the record converted into <see cref="T:System.Reflection.Type"/> T.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the record.</typeparam>
-            <returns>The record converted to <see cref="T:System.Type"/> T.</returns>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the record.</typeparam>
+            <returns>The record converted to <see cref="T:System.Reflection.Type"/> T.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.GetRecord(System.Type)">
             <summary>
             Gets the record.
             </summary>
-            <param name="type">The <see cref="T:System.Type"/> of the record.</param>
+            <param name="type">The <see cref="T:System.Reflection.Type"/> of the record.</param>
             <returns>The record.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.GetRecords``1">
             <summary>
             Gets all the records in the CSV file and
-            converts each to <see cref="T:System.Type"/> T. The Read method
+            converts each to <see cref="T:System.Reflection.Type"/> T. The Read method
             should not be used when using this.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the record.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the record.</typeparam>
             <returns>An <see cref="T:System.Collections.Generic.IList`1" /> of records.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.GetRecords(System.Type)">
             <summary>
             Gets all the records in the CSV file and
-            converts each to <see cref="T:System.Type"/> T. The Read method
+            converts each to <see cref="T:System.Reflection.Type"/> T. The Read method
             should not be used when using this.
             </summary>
-            <param name="type">The <see cref="T:System.Type"/> of the record.</param>
+            <param name="type">The <see cref="T:System.Reflection.Type"/> of the record.</param>
             <returns>An <see cref="T:System.Collections.Generic.IList`1" /> of records.</returns>
         </member>
         <member name="M:CsvHelper.CsvReader.ClearRecordCache``1">
@@ -874,7 +848,7 @@
             Gets the function delegate used to populate
             a custom class object with data from the reader.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of object that is created
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of object that is created
             and populated.</typeparam>
             <returns>The function delegate.</returns>
         </member>
@@ -883,7 +857,7 @@
             Gets the function delegate used to populate
             a custom class object with data from the reader.
             </summary>
-            <param name="recordType">The <see cref="T:System.Type"/> of object that is created
+            <param name="recordType">The <see cref="T:System.Reflection.Type"/> of object that is created
             and populated.</param>
             <returns>The function delegate.</returns>
         </member>
@@ -962,14 +936,6 @@
             </summary>
             <param name="message">The error message that explains the reason for the exception.</param>
             <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
-        </member>
-        <member name="M:CsvHelper.CsvReaderException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:CsvHelper.CsvReaderException"/> class
-            with serialized data.
-            </summary>
-            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
         </member>
         <member name="T:CsvHelper.CsvSerializer">
             <summary>
@@ -1319,14 +1285,6 @@
             <param name="message">The error message that explains the reason for the exception.</param>
             <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
         </member>
-        <member name="M:CsvHelper.CsvWriterException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:CsvHelper.CsvWriterException"/> class
-            with serialized data.
-            </summary>
-            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
-        </member>
         <member name="T:CsvHelper.ExceptionHelper">
             <summary>
             Common exception tasks.
@@ -1474,9 +1432,16 @@
             Gets the field headers.
             </summary>
         </member>
+        <member name="M:CsvHelper.ICsvReader.ReadHeader">
+            <summary>
+            Reads the header field without reading the first row.
+            </summary>
+            <returns>True if there are more records, otherwise false.</returns>
+        </member>
         <member name="M:CsvHelper.ICsvReader.Read">
             <summary>
-            Advances the reader to the next record.
+            Advances the reader to the next record. If the header hasn't been read
+            yet, it'll automatically be read along with the first record.
             </summary>
             <returns>True if there are more records, otherwise false.</returns>
         </member>
@@ -2079,7 +2044,7 @@
             <summary>
             Gets the constructor <see cref="T:System.Linq.Expressions.NewExpression"/> from the give <see cref="T:System.Linq.Expressions.Expression"/>.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the object that will be constructed.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the object that will be constructed.</typeparam>
             <param name="expression">The constructor <see cref="T:System.Linq.Expressions.Expression"/>.</param>
             <returns>A constructor <see cref="T:System.Linq.Expressions.NewExpression"/>.</returns>
             <exception cref="T:System.ArgumentException">Not a constructor expression.;expression</exception>
@@ -2249,7 +2214,7 @@
             <summary>
             Maps class properties to CSV fields.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of class to map.</typeparam>
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of class to map.</typeparam>
         </member>
         <member name="M:CsvHelper.Configuration.CsvClassMap`1.ConstructUsing(System.Linq.Expressions.Expression{System.Func{`0}})">
             <summary>
@@ -2639,14 +2604,6 @@
             <param name="message">The error message that explains the reason for the exception.</param>
             <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
         </member>
-        <member name="M:CsvHelper.Configuration.CsvConfigurationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:CsvHelper.Configuration.CsvConfigurationException"/> class
-            with serialized data.
-            </summary>
-            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
-        </member>
         <member name="T:CsvHelper.Configuration.CsvPropertyMap">
             <summary>
             Mapping info for a property to a CSV field.
@@ -2721,7 +2678,7 @@
             Specifies the <see cref="M:CsvHelper.Configuration.CsvPropertyMap.TypeConverter(CsvHelper.TypeConversion.ITypeConverter)"/> to use
             when converting the property to and from a CSV field.
             </summary>
-            <typeparam name="T">The <see cref="T:System.Type"/> of the 
+            <typeparam name="T">The <see cref="T:System.Reflection.Type"/> of the 
             <see cref="M:CsvHelper.Configuration.CsvPropertyMap.TypeConverter(CsvHelper.TypeConversion.ITypeConverter)"/> to use.</typeparam>
         </member>
         <member name="M:CsvHelper.Configuration.CsvPropertyMap.ConvertUsing``1(System.Func{CsvHelper.ICsvReaderRow,``0})">
@@ -3274,14 +3231,6 @@
             <param name="message">The error message that explains the reason for the exception.</param>
             <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
         </member>
-        <member name="M:CsvHelper.TypeConversion.CsvTypeConverterException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:CsvHelper.TypeConversion.CsvTypeConverterException"/> class
-            with serialized data.
-            </summary>
-            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
-        </member>
         <member name="T:CsvHelper.TypeConversion.DateTimeConverter">
             <summary>
             Converts a DateTime to and from a string.
@@ -3418,7 +3367,7 @@
         </member>
         <member name="M:CsvHelper.TypeConversion.EnumConverter.#ctor(System.Type)">
             <summary>
-            Creates a new <see cref="T:CsvHelper.TypeConversion.EnumConverter"/> for the given <see cref="T:System.Enum"/> <see cref="T:System.Type"/>.
+            Creates a new <see cref="T:CsvHelper.TypeConversion.EnumConverter"/> for the given <see cref="T:System.Enum"/> <see cref="T:System.Reflection.Type"/>.
             </summary>
             <param name="type">The type of the Enum.</param>
         </member>
@@ -3769,43 +3718,43 @@
         </member>
         <member name="M:CsvHelper.TypeConversion.TypeConverterFactory.AddConverter(System.Type,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
-            Adds the <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Type"/>.
+            Adds the <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Reflection.Type"/>.
             </summary>
             <param name="type">The type the converter converts.</param>
             <param name="typeConverter">The type converter that converts the type.</param>
         </member>
         <member name="M:CsvHelper.TypeConversion.TypeConverterFactory.AddConverter``1(CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
-            Adds the <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Type"/>.
+            Adds the <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Reflection.Type"/>.
             </summary>
             <typeparam name="T">The type the converter converts.</typeparam>
             <param name="typeConverter">The type converter that converts the type.</param>
         </member>
         <member name="M:CsvHelper.TypeConversion.TypeConverterFactory.RemoveConverter(System.Type)">
             <summary>
-            Removes the <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Type"/>.
+            Removes the <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Reflection.Type"/>.
             </summary>
             <param name="type">The type to remove the converter for.</param>
         </member>
         <member name="M:CsvHelper.TypeConversion.TypeConverterFactory.RemoveConverter``1">
             <summary>
-            Removes the <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Type"/>.
+            Removes the <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Reflection.Type"/>.
             </summary>
             <typeparam name="T">The type to remove the converter for.</typeparam>
         </member>
         <member name="M:CsvHelper.TypeConversion.TypeConverterFactory.GetConverter(System.Type)">
             <summary>
-            Gets the converter for the given <see cref="T:System.Type"/>.
+            Gets the converter for the given <see cref="T:System.Reflection.Type"/>.
             </summary>
             <param name="type">The type to get the converter for.</param>
-            <returns>The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Type"/>.</returns>
+            <returns>The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Reflection.Type"/>.</returns>
         </member>
         <member name="M:CsvHelper.TypeConversion.TypeConverterFactory.GetConverter``1">
             <summary>
-            Gets the converter for the given <see cref="T:System.Type"/>.
+            Gets the converter for the given <see cref="T:System.Reflection.Type"/>.
             </summary>
             <typeparam name="T">The type to get the converter for.</typeparam>
-            <returns>The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Type"/>.</returns>
+            <returns>The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Reflection.Type"/>.</returns>
         </member>
         <member name="T:CsvHelper.TypeConversion.TypeConverterOptions">
             <summary>
