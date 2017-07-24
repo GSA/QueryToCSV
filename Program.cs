@@ -21,7 +21,7 @@ namespace QueryToCSV
         /// File Location
         /// File Name
         /// Delimiter
-        /// Zip Arhcive (bool)
+        /// Zip Archive (bool)
         /// Archive Name
         /// </summary>
         /// <param name="args"></param>
@@ -52,7 +52,7 @@ namespace QueryToCSV
             ProcessData processData = new ProcessData();
             logger.Log("Done Initializing");
 
-            //Prevents certain commans from being executed
+            //Prevents certain commands from being executed
             bool invalidCommand = new[] { "select", "delete", "insert", "update", "alter" }.Any(c => args[0].Contains(c.ToLower()));
 
             //If invalid command

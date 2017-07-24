@@ -78,10 +78,10 @@ namespace QueryToCSV
             //Grabs all the column names from the dataset and stores them in a local variable
             var columnNames = queryData.Tables[0].Columns.Cast<DataColumn>().Select(column => column.ColumnName).ToArray();
 
-            //Append the column names to the csv file eperated by the delimiter
+            //Append the column names to the csv file separated by the delimiter
             csvExport.AppendLine(string.Join(delimiter, columnNames));            
 
-            //Append rows of data to the csv file seperated by the delimiter until all rows are addded
+            //Append rows of data to the csv file separated by the delimiter until all rows are added
             foreach (DataRow row in queryData.Tables[0].Rows)
             {
                 var fields = row.ItemArray.Select(field => field.ToString()).ToArray();
