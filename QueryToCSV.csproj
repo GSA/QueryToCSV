@@ -43,12 +43,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
-      <HintPath>packages\CsvHelper.2.14.2\lib\net40\CsvHelper.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\CsvHelper.2.16.3.0\lib\net40\CsvHelper.dll</HintPath>
     </Reference>
-    <Reference Include="Ionic.Zip, Version=1.9.8.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
-      <HintPath>packages\DotNetZip.1.9.8\lib\net20\Ionic.Zip.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DotNetZip">
+      <HintPath>packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data">
       <HintPath>References\MySql.Data.dll</HintPath>
@@ -73,6 +72,8 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="AppSettings.example" />
+    <None Include="ConnectionStrings.example" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

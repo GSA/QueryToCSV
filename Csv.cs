@@ -11,6 +11,11 @@ namespace QueryToCSV
         private const string ESCAPED_QUOTE = "\"\"";
         //private const char[] CHARACTERS_THAT_MUST_BE_QUOTED;
 
+        /// <summary>
+        /// Escapes a predefined list of chars
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public static string Escape(string s)
         {
             char[] CHARACTERS_THAT_MUST_BE_QUOTED = { ',', '"' };
